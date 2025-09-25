@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#1a1a1a">
+    <meta name="theme-color" content="#1a1a1a">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tính khối nhanh</title>
@@ -14,24 +14,24 @@
         table {
             border-collapse: collapse;
             width: 100%;
-            font-size: 12px; /* Giảm 10% từ 13px thành 11.7px, làm tròn thành 12px */
+            font-size: 12px;
         }
         th, td {
             border: 1px solid black;
-            padding: 4px; /* Giảm 10% từ 4px thành 3.6px, làm tròn thành 4px */
+            padding: 4px;
             text-align: left;
-            line-height: 13px; /* Giảm 10% từ 14px thành 12.6px, làm tròn thành 13px */
-            box-sizing: border-box; /* Đảm bảo padding không làm giãn ô */
+            line-height: 13px;
+            box-sizing: border-box;
         }
         th {
             background-color: #f2f2f2;
         }
         input[type="number"] {
-            width: 49px; /* Giảm 10% từ 54px thành 48.6px, làm tròn thành 49px */
-            padding: 2px; /* Giảm padding của input để khớp với ô */
-            font-size: 12px; /* Giảm 10% từ 13px thành 11.7px, làm tròn thành 12px */
-            line-height: 13px; /* Điều chỉnh để khớp với hàng */
-            box-sizing: border-box; /* Đảm bảo width bao gồm padding */
+            width: 49px;
+            padding: 2px;
+            font-size: 16px; /* >=16px để ngăn Safari zoom */
+            line-height: 18px;
+            box-sizing: border-box;
             -webkit-appearance: none;
         }
         .total-row {
@@ -45,16 +45,17 @@
         }
         @media screen and (max-width: 600px) {
             table {
-                font-size: 10px; /* Giảm 10% từ 11px thành 9.9px, làm tròn thành 10px */
+                font-size: 10px;
             }
             input[type="number"] {
-                width: 41px; /* Giảm 10% từ 45px thành 40.5px, làm tròn thành 41px */
-                padding: 2px; /* Giảm padding của input */
+                width: 45px;
+                font-size: 16px; /* vẫn giữ >=16px để không zoom */
+                padding: 2px;
                 -webkit-appearance: none;
             }
             th, td {
-                padding: 3px; /* Giảm 10% từ 3px thành 2.7px, làm tròn thành 3px */
-                line-height: 9px; /* Giảm 10% từ 11px thành 9.9px, làm tròn thành 9px */
+                padding: 3px;
+                line-height: 9px;
                 box-sizing: border-box;
             }
         }
@@ -89,7 +90,7 @@
                     <td rowspan="4">Bộ ghế băng</td>
                     <td>1m2+2 băng</td>
                     <td>0.185</td>
-                    <td><input type="number" min="0" value="0" oninput="calculateVolume(this)" -webkit-appearance: none;></td>
+                    <td><input type="number" min="0" value="0" oninput="calculateVolume(this)"></td>
                     <td class="volume">0</td>
                 </tr>
                 <tr>
@@ -246,11 +247,10 @@
         });
     </script>
     <script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js")
-      .then(() => console.log("Service Worker registered!"));
-  }
-</script>
-
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("sw.js")
+          .then(() => console.log("Service Worker registered!"));
+      }
+    </script>
 </body>
 </html>
